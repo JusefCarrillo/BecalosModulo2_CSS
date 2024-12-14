@@ -5,17 +5,20 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh; 
-    width: 100vw;
+    /* width: 100vw; */
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
     background-image: url('https://img.freepik.com/premium-vector/katakana-seamless-pattern-japanese-alphabet-seamles-pattern_109706-294.jpg?w=1380');
     background-repeat: repeat;
     background-size: 25%;
     background-blend-mode: overlay;
+
 }
 
 .contenedor {
@@ -26,20 +29,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
-    .contenedor {
-        width: 75%;
-    }
-}
-@media (max-width: 480px) {
-    .contenedor {
-        width:  100%;
-    }
-    
-}
 
 header {
     display: flex;
@@ -52,29 +44,31 @@ header {
 }
 
 .carrousel {
+    align-items: stretch;
     display: flex;
-    padding: 1% 2%;
     gap: 1%;
+    height: auto;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
+    padding: 1% 2%;
     scroll-behavior: smooth;
-    height: auto;
-    align-items: stretch;
+    scroll-snap-type: x mandatory;
 }
 
 .tarjeta {
-    width: 15vw;
     display: flex;
-    flex: 0 0 auto;
     flex-direction: column;
+    flex: 0 0 auto;
+    height: auto;
     scroll-snap-align: center;
     transition: all 0.3s ease;
-    height: auto;
+    width: 12vw;
+    border-radius: 8px;
 }
 
 .tarjeta:hover {
     transform: translateY(-10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .animePortada img {
@@ -107,80 +101,92 @@ header {
     color: #16213e;
 }
 
-
-
 section {
-    flex-grow: 1;
-    padding: 1% 2%;
-    display: flex;
-    flex-direction: column;
-    gap: 1%;
+    /* align-items: stretch; */
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    height: auto;
+    padding: 2%;
 }
 
 .anime {
-    height: 120px;
+    border-radius: 8px;
+    /* border: 1px solid #e0e0e0; */
     color: black;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
+    /* background-color: red; */
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    /* flex: 0 0 auto; */
+    height: auto;
+    /* padding: 10px; */
     transition: all 0.3s ease;
+    /* width:  8vw; */
+    align-items: center;
+    gap: 10px;
 }
 
 .anime:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .anime-image {
-    margin-right: 20px;
-    height: 100%;
-
+    width: 100%;
+    aspect-ratio: 	2/3;
+    overflow: hidden;
 }
 
 .anime-image img {
+    width: 100%;
     height: 100%;
-    width: 80px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 8px 8px 0px 0px;
 }
 
 .anime-info {
+    width: 100%;
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    flex: 1;
+    flex-grow: 1;
+    padding: 0px 0px 10px 0px ;
 }
 
 .nombre {
-    flex: 1;
+    /* flex: 1; */
     font-weight: bold;
+    /* margin-right: 10px; */
+    padding: 0px 15px 0px 15px ;
 }
 
 .calificacion {
-    width: 20%;
+    /* width: 20%; */
     text-align: center;
     font-weight: 700;
 }
 
 .botonBotar {
-    width: 20%;
-    text-align: center;
-    font-weight: bold;
+    /* width: 20%; */
+    /* text-align: center; */
+    /* font-weight: bold; */
 }
 
 button {
+    font-weight: bold;
     background-color: #0f3460;
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #1a1a2e;
+    color: black;
+    background-color: yellow;
     transform: translateY(-3px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -190,8 +196,9 @@ footer {
     color: #e94560;
     text-align: center;
     padding: 20px;
-    border-radius: 0 0 8px 8px;
+    border-radius: 0px 0px 8px 8px;
     font-weight: bold;
+    margin-top: auto;
 }
 
 .chatBoton {
@@ -207,7 +214,7 @@ footer {
     align-items: center;
     cursor: pointer;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -298,5 +305,104 @@ footer {
 
 ::-webkit-scrollbar-thumb {
     background: #0f3460;
-    border-radius: 5px;
+    border-radius: 8px;
 }
+
+@media (max-width: 768px) {
+    .contenedor {
+        width: 100%;
+    }
+
+    .carrousel {
+        gap: 4%;
+        padding: 5%;
+    }
+
+    .tarjeta {
+        width: 60vw;
+    }
+
+    .anime {
+        gap: 5px;
+    }
+
+    section {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        padding: 5%;
+    }
+
+    .nombre{
+        padding: 0px 5px 0px 5px ;
+    }
+
+    .chatBoton{
+        bottom: 10px;
+        right: 10px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .social-bar{
+        flex-direction: row;
+        position: relative;
+        justify-content: space-around;
+        padding-bottom: 40px;
+    }
+    .social-btn{
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .contenedor {
+        width: 100%;
+    }
+
+    .carrousel {
+        gap: 2%;
+        padding: 2%;
+    }
+
+    .tarjeta {
+        width: 30vw;
+    }
+
+    .anime {
+        gap: 10px;
+    }
+
+    section {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        padding: 2%;
+    }
+
+    .nombre{
+        padding: 0px 5px 0px 5px ;
+    }
+
+    .social-bar{
+        flex-direction: row;
+        position: relative;
+        justify-content: space-around;
+        padding: 0 80px 40px 80px;
+    }
+    .social-btn{
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* @media (min-width: 1025px) {
+    .contenedor {
+        width: 50%;
+    }
+
+    .tarjeta {
+        width: 20vw;
+    }
+
+    section {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+} */
